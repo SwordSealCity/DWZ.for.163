@@ -1,0 +1,68 @@
+<div class="pageContent"></div>
+
+<div class="pageContent">
+	<form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<div class="pageFormContent" layoutH="67">
+			<dl class="nowrap">
+				<dt>资产总额：</dt>
+				<dd>
+                	<input class="required" name="total" type="text" size="30" />&nbsp;&nbsp;<em class="txtTips">(启用后可通过"shift+?"查看快捷键，或查看 <a href="javascript:void(0)" class="txtLink">快捷键帮助</a>)</em>
+                </dd>
+			</dl>
+            <dl>
+				<dt>资产总额：</dt>
+				<dd><input class="required" name="total" type="text" size="30" /></dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>数据来源：</dt>
+				<dd><textarea cols="45" rows="5" name="source" style="height:200px; width:650px;"></textarea></dd>
+			</dl>
+
+			<div class="divider"></div>
+			<dl>
+				<dt>最新修改时间：</dt>
+				<dd><input class="date" readonly="readonly" type="text" size="30" /></dd>
+			</dl>
+			<dl>
+				<dt>最新修改人员：</dt>
+				<dd><input readonly="readonly" type="text" size="30" /></dd>
+			</dl>
+            <dl class="nowrap">
+				<dt>内容类型：</dt>
+				<dd>
+                	<select class="combox" name="province" ref="w_combox_city" refUrl="demo/combox/city_{value}.html">
+                        <option value="news">新闻</option>
+                        <option value="wz">文章</option>
+                        <option value="zt">专题</option>
+                        <option value="wz">品牌库</option>
+                        <option value="zt">外部导入</option>
+                        <option value="wz">奢区</option>
+                        <option value="zt">博客</option>
+                    </select>
+                </dd>
+			</dl>
+            <dl>
+            	<dt>是否图文：</dt>
+                <dd><label><input class="i_checkbox" type="checkbox" value="1" name="c1">属于图片文章类</label></dd>
+            </dl>
+		</div>
+		<div class="formBar formBarLeft">
+			<ul>
+				<li>
+                	<a class="button" href="javascript:;"><span>保 存</span></a>
+                </li>
+				<li>
+                	<a class="button" href="javascript:;"><span>取 消</span></a>
+                </li>
+                <li>
+                	<a class="buttonActive" href="javascript:;"><span>撤 销</span></a>
+                </li>
+			</ul>
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+	if($(window).width() < 912){
+		$("dl.nowrap").width(699);
+	}
+</script>

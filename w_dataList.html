@@ -1,0 +1,333 @@
+<div class="pageHeader">
+	<!-- 工具栏 Start -->
+	<div class="frame-main-cont-head frame-main-cont-head-hasBorder nui-bg-light nui-bdr-light" >
+        <div class="js-component-toolbar nui-toolbar ">
+            <div class="nui-toolbar-item">
+                <div role="button" tabindex="0" class="js-component-button nui-btn ">
+                    <span class="nui-btn-text"><span class="nui-btn-lt">&lt;&lt;</span>返回</span>
+                </div>
+            </div>
+            <!-- .nui-toolbar-item Start -->
+            <div class="nui-toolbar-item">
+                <div role="button" tabindex="0" class="js-component-button nui-imptBtn nui-btn ">
+                    <a target="navTab" href="demo_page4.html" class="add"><span class="nui-btn-text">添 加</span></a>
+                </div>
+                <div role="button" class="js-component-button nui-imptBtn nui-splitBtn nui-btn ">
+                    <span tabindex="0" class="nui-splitBtn-text">回复全部</span>
+                    <span class="nui-splitBtn-split"></span>
+                    <span tabindex="0" class="nui-splitBtn-arr"><b class="nui-ico nui-ico-dArr"></b></span>
+                </div>
+                <div role="button" class="js-component-button nui-splitBtn nui-btn ">
+                    <span tabindex="0" class="nui-splitBtn-text">转 发</span>
+                    <span class="nui-splitBtn-split"></span>
+                    <span tabindex="0" class="nui-splitBtn-arr">
+                        <b class="nui-ico nui-ico-dArr"></b>
+                    </span>
+                </div>
+            </div>
+            <!-- .nui-toolbar-item End -->
+            <div class="nui-toolbar-item">
+                <div role="button" tabindex="0" class="js-component-button nui-btn ">
+                    <a class="delete" href="demo/common/ajaxDone.html?uid={sid_user}" target="ajaxTodo" title="确定要删除吗?"><span class="nui-btn-text">删 除</span></a>
+                </div>
+                <div role="button" tabindex="0" class="js-component-button nui-btn ">
+                    <a class="edit" href="demo_page4.html?uid={sid_user}" target="navTab"><span class="nui-btn-text">修 改</span></a>
+                </div>
+                <div role="button" tabindex="0" class="js-component-button nui-dropdownBtn nui-btn ">
+                    <span class="nui-btn-text">标记为</span>
+                    <span class="nui-dropdownBtn-arr">
+                        <b class="nui-ico nui-ico-dArr"></b>
+                    </span>
+                </div>
+                <div role="button" tabindex="0" class="js-component-button nui-dropdownBtn nui-btn ">
+                    <span class="nui-btn-text">移动到</span>
+                    <span class="nui-dropdownBtn-arr">
+                        <b class="nui-ico nui-ico-dArr"></b>
+                    </span>
+                </div>
+                <div role="button" tabindex="0" class="js-component-button nui-dropdownBtn nui-btn ">
+                    <span class="nui-btn-text">更 多</span>
+                    <span class="nui-dropdownBtn-arr">
+                        <b class="nui-ico nui-ico-dArr"></b>
+                    </span>
+                </div>
+            </div>
+            
+            <!-- .nui-toolbar-ext Start -->
+            <div class="nui-toolbar-ext">
+                <div class="nui-toolbar-item">
+                    <select class="combox" name="test">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                    <div role="button" tabindex="0" class="js-component-button nui-roundBtn nui-btn nui-btn-hasIcon nui-roundBtn-hasIcon  nui-btn-disabled nui-roundBtn-disabled"
+                    title="上一页">
+                        <span class="nui-btn-icon">
+                            <b class="js-component-icon nui-ico nui-ico-prev"></b>
+                        </span>
+                        <span class="nui-btn-text">
+                        </span>
+                    </div>
+                    <div role="button" tabindex="0" class="js-component-button nui-roundBtn nui-btn nui-btn-hasIcon nui-roundBtn-hasIcon  "
+                    title="下一页">
+                        <span class="nui-btn-icon">
+                            <b class="js-component-icon nui-ico nui-ico-next">
+                            </b>
+                        </span>
+                        <span class="nui-btn-text">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- .nui-toolbar-ext End -->            
+        </div>
+    </div>
+    <!-- 工具栏 End -->
+</div>
+
+<div class="pageContent">
+	<table class="table" width="100%" layoutH="120">
+		<thead>
+			<tr>
+            	<th width="80"><input type="checkbox" class="checkboxCtrl" group="c1"></th>
+				<th width="80">单位</th>
+				<th width="120">客户号</th>
+				<th>客户名称</th>
+				<th width="100">客户类型</th>
+				<th width="150">证件号码</th>
+				<th width="80" align="center">信用等级</th>
+				<th width="80">所属行业</th>
+				<th width="80">建档日期</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr target="sid_user" rel="1">
+            	<td><input type="checkbox" name="c1" value="1" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="2">
+            	<td><input type="checkbox" name="c1" value="2" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="3">
+            	<td><input type="checkbox" name="c1" value="3" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="4">
+            	<td><input type="checkbox" name="c1" value="4" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="5">
+            	<td><input type="checkbox" name="c1" value="5" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="6">
+            	<td><input type="checkbox" name="c1" value="6" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="7">
+            	<td><input type="checkbox" name="c1" value="7" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="8">
+            	<td><input type="checkbox" name="c1" value="8" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="9">
+            	<td><input type="checkbox" name="c1" value="9" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="10">
+            	<td><input type="checkbox" name="c1" value="10" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="1">
+            	<td><input type="checkbox" name="c1" value="11" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="2">
+            	<td><input type="checkbox" name="c1" value="12" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="3">
+            	<td><input type="checkbox" name="c1" value="13" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="4">
+            	<td><input type="checkbox" name="c1" value="14" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="5">
+            	<td><input type="checkbox" name="c1" value="15" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="6">
+            	<td><input type="checkbox" name="c1" value="16" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="7">
+            	<td><input type="checkbox" name="c1" value="17" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="8">
+            	<td><input type="checkbox" name="c1" value="18" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="9">
+            	<td><input type="checkbox" name="c1" value="19" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+			<tr target="sid_user" rel="10">
+            	<td><input type="checkbox" name="c1" value="20" /></td>
+				<td>天津农信社</td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

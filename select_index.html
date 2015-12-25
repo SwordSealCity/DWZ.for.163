@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+/*全选、单选、取消 End*/
+/*SELECT*/
+function addSel(obj, txt, val) {
+    $("#" + obj).get(0).options.add(new Option(txt, val));
+}
+function emptySel(obj) {
+    $("#" + obj).empty();
+}
+function setValueSel(obj, val) {
+    $("#" + obj).get(0).value = val;
+}
+function getValueSel(obj) {
+    return $("#" + obj).val();
+}
+function getTextSel(obj) {
+    return $("#" + obj).find("option:selected").text();
+}
+function getIndexSel(obj) {
+    return $("#" + obj).get(0).selectedIndex;
+}
+function getSizeSel(obj) {
+    return $("#" + obj).get(0).options.length;
+}
+function removeItemSel(obj, val) {
+    var _obj = $("#" + obj);
+	//alert(_obj.get(0).options[2].value);
+    var _count = getSizeSel(obj);
+    for (var i = 0; i < _count; i++) {
+        if (_obj.get(0).options[i].value == val) {
+            _obj.get(0).remove(i);
+            break;
+        }
+    }
+}
+function removeSelectedSel(obj) {
+    removeIndexSel(obj, getIndexSelect(obj));
+}
+function removeIndexSel(obj, index) {
+    $("#" + obj).get(0).remove(index);
+}
+
+/*select tree*/
+// {tree:[{val:'',pid:'',txt:'',selected:''}]}
+function createSelectTree(selName, selJson, selDefTxt, selBlank, selLevel, sortKey, sortOrder) {
+    if (selDefTxt == "" || selDefTxt == null || selDefTxt == undefined) selDefTxt = "--请选择--";
+    if (selBlank == "" || selBlank == null || selBlank == undefined) selBlank = "----";
+    if (Number(selLevel) < -1 || selLevel == undefined) selLevel = -1;
+    if (sortKey == "" || sortKey == null || sortKey == undefined) sortKey = "pid";
+    if (sortOrder == "" || sortOrder == null || sortOrder == undefined) sortOrder = "asc";
+    selJson = selJson.sortObjectWith(sortKey, sortOrder, function (id) { return parseInt(id); }); //排序
+    emptySel(selName);
+    addSel(selName, selJson.length > 0 ? selDefTxt : "--无数据--", 0);
+    for (var i = 0; i < selJson.length; i++) {
+        if (selJson[i].pid != -1) {
+            var _pid = selJson[i].val;
+            var _true = true;
+            addSel(selName, selJson[i].txt, selJson[i].val);
+            if (selJson[i].selected == "true") setValueSel(selName, selJson[i].val);
+            while (_true) {
+                var _blank = "";
+                var _subPid = _pid;
+                var _level = 0;
+                for (var j = 0; j < selJson.length; j++) {
+                    if (selJson[j].pid == _subPid) {
+                        _level++;
+                        if (selLevel < _level && selLevel > -1) break;
+                        _blank += selBlank;
+                        addSel(selName, _blank + selJson[j].txt, selJson[j].val);
+                        if (selJson[j].selected == "true") setValueSel(selName, selJson[j].val);
+                        _subPid = selJson[j].val;
+                        selJson[j].pid = "-1";
+                    }
+                }
+                if (_subPid == _pid) _true = false;
+            }
+        }
+    }
+}
+/*SELECT END*/
+
+/* Json */
+/* sort */
+Array.prototype.sortObjectWith = function (key, t, fix) {
+    if (!this.length) { return this; }  		// 空数组
+    t = t === 'des' ? 'des' : 'asc'; // ascending or descending sorting, 默认 升序
+    fix = Object.prototype.toString.apply(fix) === '[object Function]' ? fix : function (key) { return key; };
+    switch (Object.prototype.toString.apply(fix.call({}, this[0][key]))) {
+        case '[object Number]':
+            return this.sort(function (a, b) { return t === 'asc' ? (fix.call({}, a[key]) - fix.call({}, b[key])) : (fix.call({}, b[key]) - fix.call({}, a[key])); });
+        case '[object String]':
+            return this.sort(function (a, b) { return t === 'asc' ? fix.call({}, a[key]).localeCompare(fix.call({}, b[key])) : fix.call({}, b[key]).localeCompare(fix.call({}, a[key])); });
+        default: return this;  // 关键字不是数字也不是字符串, 无法排序
+    }
+};
+/* Json END */
+</script>
+</head>
+
+<body>
+<div style="padding:20px;">
+<select id="select1" class="combox" name="select1">
+</select>
+<a href="javascript:;" id="select_del">删除选项</a>
+<a href="javascript:;" id="select_add">添加选项</a>
+<a href="javascript:;" id="select_upd">修改选项</a>
+</div>
+<script>
+	var selJson = [{val:'1',pid:'0',txt:'1',selected:''},{val:'2',pid:'1',txt:'2',selected:'true'}];
+	//createSelectTree('select1', selJson);
+	/**
+	 * 调用模式
+	 *
+	**/
+	// 模式1
+	$.setSelect.creater('#select1',selJson);
+	// 模式2
+	//$.setSelect.creater('select1',url);
+	
+	$('#select_del').click(function(){
+		removeItemSel('select1', 1);
+		var $ref = $('#select1');
+		var html = $ref.html();
+		//console.log(html);
+		var $refCombox = $ref.parents("div.combox:first");
+		$ref.html(html).insertAfter($refCombox);
+		$refCombox.remove();
+		$ref.trigger("change").combox();
+		
+		return false;
+	});
+	
+	// 添加的时候需要判断，下拉菜单里面是否存在这个值和ID了。
+	$('#select_add').click(function(){
+		addSel('select1', '3','3');
+		var $ref = $('#select1');
+		var html = $ref.html();
+		var $refCombox = $ref.parents("div.combox:first");
+		$ref.html(html).insertAfter($refCombox);
+		$refCombox.remove();
+		$ref.trigger("change").combox();
+		
+		return false;
+	});
+	
+	// 添加的时候需要判断，下拉菜单里面是否存在这个值和ID了。
+	$('#select_upd').click(function(){
+		setValueSel('select1', '3','3');
+		var $ref = $('#select1');
+		var html = $ref.html();
+		//console.log(html);
+		var $refCombox = $ref.parents("div.combox:first");
+		$ref.html(html).insertAfter($refCombox);
+		$refCombox.remove();
+		$ref.trigger("change").combox();
+		
+		return false;
+	});
+	
+</script>
+</body>
+</html>

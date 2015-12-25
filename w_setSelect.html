@@ -1,0 +1,55 @@
+<div style="padding:20px;">
+<select id="select2" class="combox" name="select2">
+</select>
+<a href="javascript:;" id="select2_del">删除1选项</a>
+<a href="javascript:;" id="select2_delCurrent">删除选中选项</a>
+<a href="javascript:;" id="select2_delIndex">删除对应的index值</a>
+<a href="javascript:;" id="select2_add">添加选项</a>
+<a href="javascript:;" id="select2_upd">修改选项</a>
+<a href="javascript:;" id="select2_selected">选中选项</a>
+<a href="javascript:;" id="select2_reload">刷新Select</a>
+</div>
+<script>
+	navTab.updateTitle('这是下拉菜单','#w_setSelect.html');
+	var selJson = [{id:'1',spid:'0',name:'n1'},{id:'2',spid:'4',name:'n2'},{id:'3',spid:'0',name:'n3'},{id:'4',spid:'0',name:'n4'}];
+	//createSelectTree('select1', selJson);
+	/**
+	 * 调用模式
+	 *
+	**/
+	// 模式1
+	$.setSelect.creater('#select2',selJson,{"val":"id","pid":"spid","txt":"name","selected":"2","sortKey":"spid"});
+	// 模式2
+	//$.setSelect.creater('select1',url);
+	// 删除选项
+	$('#select2_del').click(function(){
+		$.setSelect.removeOption('#select2', 1, true);
+	});
+	// 删除当前选项
+	$('#select2_delCurrent').click(function(){
+		$.setSelect.removeSelectedOption('#select2', true);
+	});
+	// 删除对应的index值
+	$('#select2_delIndex').click(function(){
+		$.setSelect.removeIndexOption('#select2', 2, true);
+	});
+	// 添加选项
+	$('#select2_add').click(function(){
+		$.setSelect.addOption('#select2', '4', '4', true);
+	});
+	// 修改选项
+	$('#select2_upd').click(function(){
+		$.setSelect.setOptionValue('#select2', '10', '3', '2', true);
+	});
+	// 选中选项
+	$('#select2_selected').click(function(){
+		$.setSelect.setOptionSel('#select2', "3", true);
+	});
+	// 刷新选项
+	$('#select2_reload').click(function(){
+		$.setSelect.creater('#select2',[{id:'1',spid:'0',name:'t1'},{id:'2',spid:'4',name:'t2'},{id:'3',spid:'0',name:'n3'},{id:'4',spid:'0',name:'n4'}],{"val":"id","pid":"spid","txt":"name","selected":"3","sortKey":"spid"});
+	});
+	
+	//$.setSelect.reload('#select2');
+	
+</script>

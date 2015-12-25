@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="themes/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen"/>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	$('.table > tbody > tr').each(function(){
+		var $tr = $(this);
+		$(this).click(function(){
+			$tr.addClass('hover');
+		});
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="pageHeader">
+	<!-- 工具栏 Start -->
+	<div class="frame-main-cont-head frame-main-cont-head-hasBorder nui-bg-light nui-bdr-light" >
+        <div class="js-component-toolbar nui-toolbar ">
+            <div class="nui-toolbar-item">
+                <div role="button" tabindex="0" class="js-component-button nui-btn ">
+                    <span class="nui-btn-text"><span class="nui-btn-lt">&lt;&lt;</span>返回</span>
+                </div>
+            </div>
+            <!-- .nui-toolbar-item Start -->
+            <div class="nui-toolbar-item">
+                <div role="button" tabindex="0" class="js-component-button nui-imptBtn nui-btn ">
+                    <a target="navTab" href="demo_page4.html" class="add"><span class="nui-btn-text">添 加</span></a>
+                </div>
+                <div role="button" class="js-component-button nui-imptBtn nui-splitBtn nui-btn ">
+                    <span tabindex="0" class="nui-splitBtn-text">回复全部</span>
+                    <span class="nui-splitBtn-split"></span>
+                    <span tabindex="0" class="nui-splitBtn-arr"><b class="nui-ico nui-ico-dArr"></b></span>
+                </div>
+                <div role="button" class="js-component-button nui-splitBtn nui-btn ">
+                    <span tabindex="0" class="nui-splitBtn-text">转 发</span>
+                    <span class="nui-splitBtn-split"></span>
+                    <span tabindex="0" class="nui-splitBtn-arr">
+                        <b class="nui-ico nui-ico-dArr"></b>
+                    </span>
+                </div>
+            </div>
+            <!-- .nui-toolbar-item End -->
+            <div class="nui-toolbar-item">
+                <div role="button" tabindex="0" class="js-component-button nui-btn ">
+                    <a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="demo/common/ajaxDone.html" class="delete"><span class="nui-btn-text">批量删除默认方式</span></a>
+                </div>
+                <div role="button" tabindex="0" class="js-component-button nui-btn ">
+                    <a class="edit" href="demo_page4.html?uid={sid_user}" target="navTab"><span class="nui-btn-text">修 改</span></a>
+                </div>
+                <div role="button" tabindex="0" class="js-component-button nui-dropdownBtn nui-btn ">
+                    <a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="demo/common/ajaxDone.html" class="delete"><span class="nui-btn-text">批量删除逗号分隔</span></a>
+                </div>
+                <div role="button" tabindex="0" class="js-component-button nui-dropdownBtn nui-btn ">
+                    <span class="nui-btn-text">移动到</span>
+                    <span class="nui-dropdownBtn-arr">
+                        <b class="nui-ico nui-ico-dArr"></b>
+                    </span>
+                </div>
+                <div role="button" tabindex="0" class="js-component-button nui-dropdownBtn nui-btn ">
+                    <span class="nui-btn-text">更 多</span>
+                    <span class="nui-dropdownBtn-arr">
+                        <b class="nui-ico nui-ico-dArr"></b>
+                    </span>
+                </div>
+            </div>
+            <div class="nui-toolbar-item nui-toolbar-search">
+            	<input name="field2" id="BarSearchIpt" type="text" alt="搜索文章"/>
+                <span class="nui-ipt-iconBtn" tabindex="0" hidefocus="hidefocus">
+                	<b class="nui-ico pFile-ico pFile-ico-search"></b>
+                </span>
+            </div>
+            <!-- .nui-toolbar-ext Start -->
+            <div class="nui-toolbar-ext">
+                <div class="nui-toolbar-item">
+                	<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                        <option value="1">1/10</option>
+                        <option value="2">2/70</option>
+                        <option value="3">3/70</option>
+                        <option value="4">4/70</option>
+                        <option value="5">5/70</option>
+                        <option value="6">6/70</option>
+                        <option value="7">7/70</option>
+                    </select>
+                    <div role="button" tabindex="0" class="js-component-button nui-roundBtn nui-btn nui-btn-hasIcon nui-roundBtn-hasIcon  nui-btn-disabled nui-roundBtn-disabled"
+                    title="上一页">
+                        <span class="nui-btn-icon">
+                            <b class="js-component-icon nui-ico nui-ico-prev"></b>
+                        </span>
+                        <span class="nui-btn-text">
+                        </span>
+                    </div>
+                    <div role="button" tabindex="0" class="js-component-button nui-roundBtn nui-btn nui-btn-hasIcon nui-roundBtn-hasIcon  "
+                    title="下一页">
+                        <span class="nui-btn-icon">
+                            <b class="js-component-icon nui-ico nui-ico-next">
+                            </b>
+                        </span>
+                        <span class="nui-btn-text">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- .nui-toolbar-ext End -->            
+        </div>
+    </div>
+    <!-- 工具栏 End -->
+</div>
+<div class="pageContent">
+	<table class="table" width="100%" layoutH="80">
+		<thead>
+			<tr>
+				<th width="22"><input type="checkbox" group="ids" class="checkboxCtrl"></th>
+				<th width="120" orderField="accountNo" class="asc">客户号</th>
+				<th orderField="accountName">客户名称</th>
+				<th width="80" orderField="accountType">客户类型</th>
+				<th width="130" orderField="accountCert">证件号码</th>
+				<th width="60" align="center" orderField="accountLevel">信用等级</th>
+				<th width="70">所属行业</th>
+				<th width="70">建档日期</th>
+				<th width="70">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr target="sid_user" rel="1">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="2">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="3">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="4">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="5">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="6">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="7">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="8">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="9">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="10">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="11">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="12">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+			<tr target="sid_user" rel="13">
+				<td><input name="ids" value="xxx" type="checkbox"></td>
+				<td>A120113196309052434</td>
+				<td>天津市华建装饰工程有限公司</td>
+				<td>联社营业部</td>
+				<td>29385739203816293</td>
+				<td>5级</td>
+				<td>政府机构</td>
+				<td>2009-05-21</td>
+				<td>
+					<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+					<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>

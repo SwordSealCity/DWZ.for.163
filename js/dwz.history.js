@@ -1,0 +1,109 @@
+/**
+ * 这个插件是修改地址栏的，在原本的基础上把后面的参数替换功能删除了。
+ * var current_hash = location.hash.replace(/\?.*$/, '');
+ * jQuery ajax history plugins
+ * @author ZhangHuihua@msn.com
+ */
+
+
+(function($){
+
+	$.extend({
+		
+		History: {
+			_hash: new Array(),
+			_cont: undefined,
+			_currentHash: "",
+			_callback: undefined,
+			init: function(cont, callback){
+				$.History._cont = cont;
+				$.History._callback = callback;
+				var current_hash = location.hash;
+				$.History._currentHash = current_hash;
+				if ($.browser.msie) {
+					if ($.History._currentHash == '') {
+						$.History._currentHash = '#';
+					}
+					// 源跨域代码
+					$("body").append('<iframe id="jQuery_history" style="display: none;" src="about:blank"></iframe>');
+					var ihistory = $("#jQuery_history")[0];
+					var iframe = ihistory.contentDocument || ihistory.contentWindow.document;
+					iframe.open();
+					iframe.close();
+					
+					// 最新跨域解决方案  2014.1.25   ----- Aramey
+					// 需要在页面初始化时设置document.domain = 'shego.com.cn';
+					/*
+					var ifmHistory=document.createElement('iframe');
+					ifmHistory.src="about:blank";
+					ifmHistory.id="jQuery_history";
+					ifmHistory.style.display="none";
+					document.body.appendChild(ifmHistory);
+					try{
+						ifmHistory.contentWindow.document.title;
+					}catch(e){
+						$("#jQuery_history").load(function(){ifmHistory.onload = null;});
+						ifmHistory.src="javascript:void((function(){var d=document;d.open();d.domain='"+document.domain+"';d.write(' ');d.close()})())";
+					}*/
+					
+					var ihistory=$("#jQuery_history")[0];
+					var iframe=ihistory.contentDocument||ihistory.contentWindow.document;
+					iframe.open();
+					iframe.close();
+					iframe.location.hash = current_hash;
+				}
+				if ($.isFunction(this._callback)) 
+					$.History._callback(current_hash.skipChar("#"));
+				setInterval($.History._historyCheck, 100);
+			},
+			_historyCheck: function(){
+				var current_hash = "";
+				if ($.browser.msie) {
+					var ihistory = $("#jQuery_history")[0];
+					var iframe = ihistory.contentWindow;
+					current_hash = iframe.location.hash.skipChar("#").replace(/\?.*$/, '');
+				} else {
+					current_hash = location.hash.skipChar('#').replace(/\?.*$/, '');
+				}
+//				if (!current_hash) {
+//					if (current_hash != $.History._currentHash) {
+//						$.History._currentHash = current_hash;
+//						//TODO
+//					}
+//				} else {
+					if (current_hash != $.History._currentHash) {
+						$.History._currentHash = current_hash;
+						$.History.loadHistory(current_hash);
+					}
+//				}
+				
+			},
+			addHistory: function(hash, fun, args){
+				$.History._currentHash = hash;
+				var history = [hash, fun, args];
+				$.History._hash.push(history);
+				if ($.browser.msie) {
+					var ihistory = $("#jQuery_history")[0];
+					var iframe = ihistory.contentDocument || ihistory.contentWindow.document;
+					iframe.open();
+					iframe.close();
+					iframe.location.hash = hash;
+					location.hash = hash;
+				} else {
+					location.hash = hash;
+				}
+			},
+			loadHistory: function(hash){
+				if ($.browser.msie) {
+					location.hash = hash;
+				}
+				for (var i = 0; i < $.History._hash.length; i += 1) {
+					if ($.History._hash[i][0] == hash) {
+						$.History._hash[i][1]($.History._hash[i][2]);
+						return;
+					}
+				}
+			}
+		}
+	});
+})(jQuery);
